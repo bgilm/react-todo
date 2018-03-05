@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import {
+  StyledForm,
+  StyledCheckbox,
+  StyledInput
+} from './NewTodo.style'
 
 class NewTodo extends Component {
   constructor (props) {
@@ -20,14 +25,18 @@ class NewTodo extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <input
+      <StyledForm onSubmit={this.handleSubmit.bind(this)}>
+        <StyledCheckbox
+          onClick={() => this.props.checkEverything()}
+          checked={this.props.isEverythingChecked}
+        />
+        <StyledInput
           placeholder="What needs to be done?"
           value={this.state.todo}
+          type="text"
           onChange={(event) => this.setState({ todo: event.target.value })}
-        >
-        </input>
-      </form>
+        />
+      </StyledForm>
     );
   }
 }
