@@ -6,7 +6,7 @@ import {
   Button
 } from './Footer.style'
 
-const Footer = ({ itemsLeft, visibilityFilter, clearCompleted, setVisibilityFilter }) => {
+const Footer = ({ itemsLeft, visibilityFilter, clearCompleted, setVisibilityFilter, completedExist }) => {
   return (
     <FooterContainer>
       <span>{`Items left: ${itemsLeft}`}</span>
@@ -15,7 +15,11 @@ const Footer = ({ itemsLeft, visibilityFilter, clearCompleted, setVisibilityFilt
         <Filter isSelected={visibilityFilter === 'Active'} onClick={() => setVisibilityFilter('Active')}>Active</Filter>
         <Filter isSelected={visibilityFilter === 'Completed'} onClick={() => setVisibilityFilter('Completed')}>Completed</Filter>
       </VisibilityFilter>
-      <Button onClick={() => clearCompleted()}>Clear Completed</Button>
+      {
+        completedExist
+        ? <Button onClick={() => clearCompleted()}>Clear Completed</Button>
+        : <span></span>
+      }
     </FooterContainer>
   )
 }

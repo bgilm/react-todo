@@ -66,6 +66,7 @@ class App extends Component {
       return (
         <Footer
         itemsLeft={this.state.todos.filter(todo => todo.isDone === false).length}
+        completedExist={this.state.todos.filter(todo => todo.isDone === true).length > 0}
         clearCompleted={this.clearCompleted}
         setVisibilityFilter={this.setVisibilityFilter}
         visibilityFilter={this.state.visibilityFilter}
