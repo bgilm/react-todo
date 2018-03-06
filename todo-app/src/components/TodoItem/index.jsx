@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import {
   StyledSpan,
   TodoWrapper
@@ -21,6 +22,14 @@ const TodoItem = ({id, value, isDone, deleteTodo, toggleIsDone}) => {
       </i>
     </div>
   )
+}
+
+TodoItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  isDone: PropTypes.bool.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  toggleIsDone: PropTypes.func.isRequired
 }
 
 export default TodoItem;

@@ -42,9 +42,10 @@ class NewTodo extends Component {
 }
 
 NewTodo.propTypes = {
-  addTodo: PropTypes.func.isRequired
+  addTodo: PropTypes.func.isRequired,
+  checkEverything: PropTypes.func.isRequired,
+  isEverythingChecked: PropTypes.bool.isRequired
 }
-
 
 
 export default NewTodo;
